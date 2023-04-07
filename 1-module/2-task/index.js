@@ -10,7 +10,10 @@ function xprint(text) {
  * чтобы функция sayHello работала корректно
  */
 function isValid(name) {
-  if (name == null) {
+
+  return !!name && !name.includes(' ') && name.length >= 4;
+
+ /* if (name == null) {
     return false;
   }
  
@@ -28,7 +31,7 @@ function isValid(name) {
     }
   } 
 
-  return true;
+  return true;*/
 }
 
 function sayHello() {
