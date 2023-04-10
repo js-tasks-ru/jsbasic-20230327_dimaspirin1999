@@ -16,15 +16,3 @@ console.log(calculator.sum()); // 8
 console.log(calculator.mul()); // 15
 ```
 
-let calculator = {
-  function read() {
-    let a = a;
-    let b = b;
-  },
-    
-  function sum() { read.a + read.b },
-  function mul() { read.a * read.b },
-};
-calculator.read(3, 5);
-console.log(calculator.sum()); // 8
-console.log(calculator.mul());
