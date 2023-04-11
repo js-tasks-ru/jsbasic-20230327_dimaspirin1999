@@ -15,3 +15,4 @@ calculator.read(3, 5);
 console.log(calculator.sum()); // 8
 console.log(calculator.mul()); // 15
 ```
+
