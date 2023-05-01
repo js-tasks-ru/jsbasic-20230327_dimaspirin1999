@@ -3,6 +3,7 @@ export default class UserTable {
     this.elem = deleteRows(rows)
     }
   }
+
   function createTable(obj) {
     return `
     <tr>
@@ -13,6 +14,7 @@ export default class UserTable {
     <td><button>X</button></td>
   </tr>
   `
+
   }
   function makeHTML(array){
     return `
@@ -27,6 +29,7 @@ export default class UserTable {
       <tbody>
           ${array.map(createTable).join('')}
       </tbody>`
+      
   }
   function deleteRows(array){
     const table = document.createElement("table");

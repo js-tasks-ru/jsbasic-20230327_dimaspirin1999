@@ -28,7 +28,6 @@ export default class ProductCard {
   buttonClick() {
     let button = this.elem.querySelector('.card__button');
     button.addEventListener('click' , (event) => {
-      console.log(event.target);
       event.target.dispatchEvent(
         new CustomEvent("product-add", {
           detail: this.product.id, 
@@ -36,13 +35,5 @@ export default class ProductCard {
         })
       );
     });
-
-    /*button.addEventListener("product-add", function(event) {
-      alert(event.detail.name);
-    });*/
-  
-    /*button.dispatchEvent(new CustomEvent("product-add", {
-      detail: { name: "Вася" }
-    }));*/
   } 
 }
