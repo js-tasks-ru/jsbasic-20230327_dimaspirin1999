@@ -22,7 +22,9 @@ export default class RibbonMenu {
       </button>
     </div>
     `);
-    document.addEventListener("DOMContentLoaded", () => initRibbon(this.elem));
+
+    initRibbon(this.elem);
+    categoryClick(this.elem);
   }
 }
 
@@ -61,7 +63,7 @@ function initRibbon(ribbon) {
     let scrollRight = ribbonInner.scrollWidth - ribbonInner.scrollLeft - ribbonInner.clientWidth;
   
     ribbonInner.scrollBy(350, 0);
-    console.log(ribbonInner.scrollLeft);
+
     if (ribbonInner.scrollLeft >= 0) {
       arrowL.classList.add('ribbon__arrow_visible')
     } 
@@ -71,6 +73,34 @@ function initRibbon(ribbon) {
     }
   };
 };
+
+function categoryClick (html) {
+  let links = html.querySelectorAll('.ribbon__item');
+  
+  for (let a = 0; a < links.length; a++) {
+    links[a].addEventListener('click', (event) => {
+      event.preventDefault();
+      
+      let activeLink = html.querySelector('.ribbon__item_active');
+
+      if (activeLink) {
+        activeLink.classList.remove('ribbon__item_active');
+      }
+
+      links[a].classList.add('ribbon__item_active');
+
+      html.dispatchEvent(
+        new CustomEvent('ribbon-select', {
+          detail: links[a].getAttribute('data-id'),
+          bubbles: true
+        })
+      );
+    });
+  };
+};
+
+
+
 
 
 
