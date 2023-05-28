@@ -46,17 +46,20 @@ export default class Modal {
     bodyElem.append(body);
   }
 
-  close() {
+  close = () => {
     let body = document.body;
-    let modalWinndow = body.querySelector('.modal');
+    let modalWinndow = this.elem;
     modalWinndow.remove();
     document.body.classList.remove('is-modal-open');
   }
 
   onCloseEscape() {
-    const remove = () => {
-      this.close();
+    const remove = (event) => {
+      if (event.code === 'Escape') {
+        this.close();
       document.removeEventListener('keydown', remove);
+      }
+      
     };
     document.addEventListener('keydown', remove);
   }
@@ -66,4 +69,3 @@ export default class Modal {
     closeButton.addEventListener('click', this.close);
   }
 }
-
